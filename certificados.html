@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificados - Fellipe Farias</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f1a2e, #1e3a8a);
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            overflow-x: hidden;
+            margin: 0;
+            height: 100vh;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: -1;
+        }
+        .certificate-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 191, 255, 0.1));
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .certificate-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.2) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+            z-index: 0;
+        }
+        .certificate-card:hover {
+            transform: translateY(-15px) scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 191, 255, 0.4);
+        }
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding: 20px 0;
+            gap: 20px;
+        }
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+        .nav-link {
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: #00bfff;
+            text-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #00bfff;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .custom-btn {
+            background: linear-gradient(90deg, #00bfff, #6b48ff);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .custom-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 1.5s infinite;
+            z-index: 0;
+        }
+        .custom-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 20px rgba(0, 191, 255, 0.6);
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0% { width: 0; height: 0; opacity: 0.6; }
+            50% { width: 200px; height: 200px; opacity: 0; }
+            100% { width: 0; height: 0; opacity: 0.6; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Fundo de Partículas -->
+    <div id="particles-js"></div>
+
+    <!-- Navegação -->
+    <nav class="bg-transparent shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white">Fellipe Farias</a>
+            <div class="space-x-6">
+                <a href="index.html#inicio" class="text-white nav-link">Início</a>
+                <a href="index.html#sobre" class="text-white nav-link">Sobre</a>
+                <a href="index.html#projetos" class="text-white nav-link">Projetos</a>
+                <a href="index.html#servicos" class="text-white nav-link">Serviços</a>
+                <a href="index.html#depoimentos" class="text-white nav-link">Depoimentos</a>
+                <a href="index.html#contato" class="text-white nav-link">Contato</a>
+                <a href="#certificados" class="text-blue-300 font-semibold nav-link">Certificados</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção Certificados -->
+    <section id="certificados" class="py-20 pt-40 flex-grow">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-400">Meus Certificados</h1>
+            <p class="text-xl mb-12 text-gray-300">Credenciais que definem meu futuro tecnológico.</p>
+            <div class="carousel">
+                <!-- Certificado 1 -->
+                <div class="certificate-card p-6 m-4 w-80 flex-shrink-0 relative z-10">
+                    <h3 class="text-2xl font-semibold mb-3 text-cyan-300">Full Stack Dev</h3>
+                    <p class="text-md text-gray-400 mb-4">Rocketseat, 2023</p>
+                    <div class="w-full h-64 bg-gray-900 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img src="cert1.jpg" alt="Certificado Full Stack" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                </div>
+                <!-- Certificado 2 -->
+                <div class="certificate-card p-6 m-4 w-80 flex-shrink-0 relative z-10">
+                    <h3 class="text-2xl font-semibold mb-3 text-cyan-300">UI/UX Design</h3>
+                    <p class="text-md text-gray-400 mb-4">Coursera, 2024</p>
+                    <div class="w-full h-64 bg-gray-900 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img src="cert2.jpg" alt="Certificado UI/UX" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                </div>
+                <!-- Certificado 3 -->
+                <div class="certificate-card p-6 m-4 w-80 flex-shrink-0 relative z-10">
+                    <h3 class="text-2xl font-semibold mb-3 text-cyan-300">Mobile Dev</h3>
+                    <p class="text-md text-gray-400 mb-4">Udemy, 2024</p>
+                    <div class="w-full h-64 bg-gray-900 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img src="cert3.jpg" alt="Certificado Mobile" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 flex justify-center space-x-6">
+                <button onclick="scrollCarousel(-1)" class="custom-btn">Anterior</button>
+                <button onclick="scrollCarousel(1)" class="custom-btn">Próximo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-gray-900 py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-500">&copy; 2025 Fellipe Farias. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        /* Configuração das Partículas com Transições Dinâmicas */
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: ["#00bfff", "#6b48ff", "#ff00ff"] }, // Cores neon variadas
+                shape: { type: "circle" },
+                opacity: { value: 0.7, random: true },
+                size: { value: 4, random: true },
+                line_linked: { enable: true, distance: 150, color: "#00bfff", opacity: 0.5, width: 1 },
+                move: { enable: true, speed: 3, direction: "none", random: true, straight: false, bounce: true }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+                modes: { repulse: { distance: 150, duration: 0.6 } }
+            }
+        });
+
+        /* Controle do Carrossel */
+        function scrollCarousel(direction) {
+            const carousel = document.querySelector('.carousel');
+            const scrollAmount = direction * 340; // Largura do card + margem + gap
+            carousel.scrollLeft += scrollAmount;
+        }
+    </script>
+</body>
+</html>
